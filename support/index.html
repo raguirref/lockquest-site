@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="es-MX">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Soporte de Lockquest: por qué no aparece el escudo, por qué no se desbloqueó una app, cómo restaurar compras y cómo borrar tus datos.">
-  <title>Soporte · Lockquest</title>
+  <title>Support · Soporte · Lockquest</title>
   <style>
     /* Tokens. El claro es la definición base para que el ajuste «sistema» del
        visitante —que no marca nada en el documento— caiga siempre en un par
@@ -15,7 +15,7 @@
       --surface: #ffffff;
       --ink: #16161a;
       --ink-2: #55555f;
-      --ink-3: #86868f;
+      --ink-3: #646471;
       --rule: rgba(60, 60, 67, 0.16);
       --accent: #4b47cc;          /* índigo del sistema, un punto más oscuro para texto */
       --accent-quiet: rgba(88, 86, 214, 0.09);
@@ -27,7 +27,7 @@
         --surface: #17171c;
         --ink: #f2f2f7;
         --ink-2: #a6a6b2;
-        --ink-3: #77778a;
+        --ink-3: #8d8d9f;
         --rule: rgba(235, 235, 245, 0.14);
         --accent: #a29fff;
         --accent-quiet: rgba(162, 159, 255, 0.13);
@@ -125,6 +125,7 @@
     section > p + p { margin-top: 0.85rem; }
 
     a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    a[href^="mailto:"] { overflow-wrap: anywhere; }
     a:focus-visible, .toc a:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
@@ -191,56 +192,106 @@
   <div class="page">
     <header class="masthead">
       <p class="wordmark">Lockquest</p>
-      <h1>¿En qué te atoraste?</h1>
-      <p class="meta">Soporte · última actualización: 20 de agosto de 2026</p>
-      <p class="lead">Lockquest bloquea las apps que tú eliges y te devuelve minutos cuando completas un reto. Funciona completo sin cuenta y sin conexión. Si algo no se comporta así, aquí abajo está el porqué más probable.</p>
+      <h1>What got stuck?</h1>
+      <p class="meta">Support · Updated <time datetime="2026-11-18">November 18, 2026</time> · <a href="#es" lang="es-MX">Español</a></p>
+      <p class="lead">Lockquest blocks the apps you choose and gives minutes back when you finish a challenge. Blocking and learning work offline without signing in. If something is not behaving that way, the likeliest reason is below.</p>
     </header>
 
-    <nav class="toc" aria-label="Problemas frecuentes">
-      <p class="toc-title">En esta página</p>
+    <nav class="toc" aria-label="Common problems">
+      <p class="toc-title">On this page</p>
       <ul>
-          <li><a href="#escudo">El escudo no aparece sobre la app que bloqueé</a></li>
-          <li><a href="#victoria">Gané un reto pero no se desbloqueó la app</a></li>
-          <li><a href="#minutos">Mis minutos se acabaron antes de lo que esperaba</a></li>
-          <li><a href="#pro">Compré Pro y no lo veo, o cambié de teléfono</a></li>
-          <li><a href="#datos">Quiero borrar mis datos</a></li>
-          <li><a href="#hardcore">Modo Hardcore</a></li>
-          <li><a href="#escribenos">Escríbenos</a></li>
+          <li><a href="#shield">The shield does not appear over the app I blocked</a></li>
+          <li><a href="#win">I won a challenge but the app stayed blocked</a></li>
+          <li><a href="#minutes">My minutes ran out sooner than I expected</a></li>
+          <li><a href="#pro">I bought Pro and cannot see it, or I changed phones</a></li>
+          <li><a href="#data">I want to delete my data</a></li>
+          <li><a href="#hardcore">Hardcore Mode</a></li>
+          <li><a href="#write">Write to us</a></li>
       </ul>
     </nav>
 
     <main>
-      <section id="escudo">
+      <section id="shield">
+        <h2>The shield does not appear over the app I blocked</h2>
+        <p>Check three things, in this order: that the pact is <strong>switched on</strong> in the Pacts list — new pacts start off on purpose — that the pact's schedule covers the current time, and that Lockquest still has Screen Time authorisation in Settings ▸ Screen Time. If you revoked it, Lockquest stops protecting and says so on screen instead of pretending it is still active.</p>
+        <p><strong>If you also use Downtime or App Limits from Settings</strong>, add Lockquest to Always Allowed. Otherwise the system can block the very app that gives your minutes back, and there is no way in from inside the app. To recover: Settings ▸ Screen Time ▸ Apps with Screen Time Access ▸ Lockquest ▸ turn it off, which drops every block Lockquest applied.</p>
+      </section>
+
+      <section id="win">
+        <h2>I won a challenge but the app stayed blocked</h2>
+        <p>Minutes are granted when you finish the challenge correctly, once per game. If the win never appeared, the challenge was not completed: leaving mid-game grants no time. If the win did appear and the app is still blocked, close and reopen Lockquest so it reconciles the state.</p>
+      </section>
+
+      <section id="minutes">
+        <h2>My minutes ran out sooner than I expected</h2>
+        <p>The counter only moves while you are actually using one of the apps in your pacts, not while the phone sits in your pocket. You can change how many minutes each win is worth in Profile ▸ Economy, as long as no block is active at that moment.</p>
+      </section>
+
+      <section id="pro">
+        <h2>I bought Pro and cannot see it, or I changed phones</h2>
+        <p>Open Profile ▸ Restore purchases. Lockquest asks Apple about your current purchases; no account of ours grants Pro on its own. Use the same Apple Account you bought with. Subscriptions are cancelled from Settings ▸ your name ▸ Subscriptions, not from Lockquest.</p>
+      </section>
+
+      <section id="data">
+        <h2>I want to delete my data</h2>
+        <p><strong>Delete your account.</strong> If you signed in with Apple, open <strong>Profile</strong>, find <strong>Account and backup</strong> and choose <strong>Delete account</strong>. Review what will be deleted before you confirm. The request removes your private iCloud backup and the learning history on this device, including progress from before sign-in, Loqui, earned stars and related reminders. It keeps your blocking rules, appearance and accessibility settings, purchases and Pro access.</p>
+        <p>Learning pauses while deletion is in progress and the request cannot be canceled after it starts. Keep Lockquest installed and follow the deletion screen, including any steps to remove Lockquest’s access to Sign in with Apple. If your sign-in used the optional account authorization service, the app also checks for confirmation from that service. When all required checks finish, you can choose <strong>Continue locally</strong>.</p>
+        <p><strong>Delete just the backup.</strong> In <strong>Account and backup</strong>, open <strong>More account options</strong> and choose <strong>Delete backup and disconnect</strong>. This keeps your learning on the device. Choosing <strong>Disconnect account</strong> alone leaves the backup in iCloud.</p>
+        <p><strong>Local use.</strong> If you have only used Lockquest without signing in or turning on backup, use <strong>Delete App</strong> on your device to remove the app and its local data.</p>
+        <p>For details about what is deleted and what is retained, see the <a href="../privacy/">privacy policy</a>. <a href="#es-datos" lang="es-MX">Ver instrucciones en español</a>.</p>
+      </section>
+
+      <section id="hardcore">
+        <h2>Hardcore Mode</h2>
+        <p>Hardcore removes the easy exit during a game: you cannot pause or give up until you earn your time. It is free. It does not stop you uninstalling Lockquest or any other app, and revoking Screen Time in Settings turns it off all the same.</p>
+      </section>
+
+      <section id="write">
+        <h2>Write to us</h2>
+        <p>If none of the above fixes it, send us your device model, your iOS version and what you expected to happen: <a href="mailto:lockquest.app@gmail.com">lockquest.app@gmail.com</a>.</p>
+        <p>We answer in English or Spanish. Lockquest is a self-control app for adults (18+); it does not supervise other people and has no parental dashboard.</p>
+      </section>
+
+      <section id="es" lang="es-MX">
+        <h2>Soporte en español</h2>
+        <p class="lead">Lockquest bloquea las apps que tú eliges y te devuelve minutos cuando completas un reto. Puedes bloquear apps y aprender sin conexión y sin iniciar sesión.</p>
+        <p><a href="#es-datos">Cómo eliminar tu cuenta o borrar tus datos</a></p>
+      </section>
+      <section lang="es-MX" id="es-escudo">
         <h2>El escudo no aparece sobre la app que bloqueé</h2>
         <p>Revisa tres cosas, en este orden: que el pacto esté <strong>encendido</strong> en la lista de Pactos —los pactos nuevos nacen apagados a propósito—, que el horario del pacto incluya la hora actual, y que Lockquest siga teniendo la autorización de Tiempo de Uso en Ajustes ▸ Tiempo de pantalla. Si revocaste la autorización, Lockquest deja de proteger y te lo dice en pantalla en vez de aparentar que sigue activa.</p>
       </section>
 
-      <section id="victoria">
+      <section lang="es-MX" id="es-victoria">
         <h2>Gané un reto pero no se desbloqueó la app</h2>
         <p>Los minutos se conceden al terminar el reto correctamente, una sola vez por partida. Si la victoria no aparece, el reto no se completó: salir a media partida no otorga tiempo. Si la victoria sí apareció y la app sigue bloqueada, cierra y vuelve a abrir Lockquest para que reconcilie el estado.</p>
       </section>
 
-      <section id="minutos">
+      <section lang="es-MX" id="es-minutos">
         <h2>Mis minutos se acabaron antes de lo que esperaba</h2>
         <p>El contador sólo avanza mientras usas de verdad una de las apps de tus pactos, no mientras el teléfono está en tu bolsillo. Puedes cambiar cuántos minutos ganas por victoria en Perfil ▸ Economía, siempre que no haya un bloqueo activo en ese momento.</p>
       </section>
 
-      <section id="pro">
+      <section lang="es-MX" id="es-pro">
         <h2>Compré Pro y no lo veo, o cambié de teléfono</h2>
         <p>Abre Perfil ▸ Restaurar compras. Lockquest le pregunta a Apple por tus compras vigentes; ninguna cuenta nuestra concede Pro por su cuenta. Usa la misma cuenta de Apple con la que compraste. Las suscripciones se cancelan desde Ajustes ▸ tu nombre ▸ Suscripciones, no desde Lockquest.</p>
       </section>
 
-      <section id="datos">
+      <section lang="es-MX" id="es-datos">
         <h2>Quiero borrar mis datos</h2>
-        <p>Todo lo que Lockquest guarda vive primero en tu dispositivo: borrar la app y sus datos lo elimina. Si activaste el respaldo con Continuar con Apple, puedes borrar la copia privada de iCloud desde Perfil. No tenemos servidores con tu información, así que no hay una cuenta nuestra que dar de baja.</p>
+        <p><strong>Eliminar tu cuenta.</strong> Si iniciaste sesión con Apple, abre <strong>Perfil</strong>, busca <strong>Cuenta y respaldo</strong> y toca <strong>Eliminar cuenta</strong>. Revisa qué se eliminará antes de confirmar. La solicitud borra el respaldo privado de iCloud y el historial de aprendizaje de este dispositivo, incluido el progreso anterior al inicio de sesión, Loqui, las estrellas ganadas y los recordatorios relacionados. Conserva las reglas de bloqueo, los ajustes de apariencia y accesibilidad, las compras y el acceso Pro.</p>
+        <p>El aprendizaje se pausa mientras se procesa la solicitud. Una vez iniciada, ya no se puede cancelar. Mantén Lockquest instalada y sigue las indicaciones de la pantalla de eliminación, incluidos los pasos que aparezcan para retirar el acceso de Lockquest a Continuar con Apple. Si iniciaste sesión mediante el servicio opcional de autorización de cuenta, la app también comprueba su confirmación. Cuando terminen las comprobaciones, puedes elegir <strong>Continuar en este dispositivo</strong>.</p>
+        <p><strong>Borrar sólo el respaldo.</strong> En <strong>Cuenta y respaldo</strong>, abre <strong>Más opciones de cuenta</strong> y toca <strong>Borrar copia y desconectar</strong>. Así conservas el aprendizaje de este dispositivo. Si sólo eliges <strong>Desconectar cuenta</strong>, el respaldo permanece en iCloud.</p>
+        <p><strong>Uso local.</strong> Si siempre usaste Lockquest sin iniciar sesión ni activar el respaldo, toca <strong>Eliminar app</strong> en tu dispositivo para retirar la app y sus datos locales.</p>
+        <p>Consulta la <a href="../privacy/#es">política de privacidad</a> para saber qué se elimina y qué se conserva. <a href="#data" lang="en">Read the instructions in English</a>.</p>
       </section>
 
-      <section id="hardcore">
+      <section lang="es-MX" id="es-hardcore">
         <h2>Modo Hardcore</h2>
         <p>Hardcore quita la salida fácil durante una partida: no puedes pausar ni rendirte hasta ganar tu tiempo. Es gratuito. No impide desinstalar Lockquest ni ninguna otra app del dispositivo, y revocar Tiempo de Uso en Ajustes lo desactiva igual.</p>
       </section>
 
-      <section id="escribenos">
+      <section lang="es-MX" id="es-escribenos">
         <h2>Escríbenos</h2>
         <p>Si nada de lo anterior lo resuelve, mándanos el modelo de tu dispositivo, la versión de iOS y qué esperabas que pasara: <a href="mailto:lockquest.app@gmail.com">lockquest.app@gmail.com</a>.</p>
         <p>Contestamos en español o inglés. Lockquest es una app de autocontrol para personas adultas (18+); no supervisa a otras personas y no tiene panel para padres.</p>
@@ -248,7 +299,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>Qué se guarda, qué nunca sale del dispositivo y qué entra al respaldo opcional está en la <a href="../privacy/">política de privacidad</a>.</p>
+      <p>What is stored, what never leaves the device and what enters the optional backup is in the <a href="../privacy/">privacy policy</a>.</p>
     </footer>
   </div>
 </body>

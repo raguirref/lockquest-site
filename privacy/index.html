@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es-MX">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
       --surface: #ffffff;
       --ink: #16161a;
       --ink-2: #55555f;
-      --ink-3: #86868f;
+      --ink-3: #646471;
       --rule: rgba(60, 60, 67, 0.16);
       --accent: #4b47cc;          /* índigo del sistema, un punto más oscuro para texto */
       --accent-quiet: rgba(88, 86, 214, 0.09);
@@ -27,7 +27,7 @@
         --surface: #17171c;
         --ink: #f2f2f7;
         --ink-2: #a6a6b2;
-        --ink-3: #77778a;
+        --ink-3: #8d8d9f;
         --rule: rgba(235, 235, 245, 0.14);
         --accent: #a29fff;
         --accent-quiet: rgba(162, 159, 255, 0.13);
@@ -125,6 +125,7 @@
     section > p + p { margin-top: 0.85rem; }
 
     a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    a[href^="mailto:"] { overflow-wrap: anywhere; }
     a:focus-visible, .toc a:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
@@ -191,83 +192,161 @@
   <div class="page">
     <header class="masthead">
       <p class="wordmark">Lockquest</p>
-      <h1>Tu progreso es tuyo.</h1>
-      <p class="meta">Política de privacidad · última actualización: 20 de agosto de 2026</p>
-      <p class="lead">Lockquest es local-first: el núcleo no requiere cuenta, no incluye publicidad, no rastrea y no vende datos personales.</p>
+      <h1>Your progress is yours.</h1>
+      <p class="meta">Privacy policy · last updated: November 14, 2026 · <a href="#es">Español</a></p>
+      <p class="lead">Lockquest is local-first: the core needs no account, carries no advertising, does not track you, and does not sell personal data.</p>
     </header>
 
-    <nav class="toc" aria-label="Secciones de la política">
-      <p class="toc-title">En esta página</p>
+    <nav class="toc" aria-label="Policy sections">
+      <p class="toc-title">On this page</p>
       <ul>
-          <li><a href="#dispositivo">Datos guardados en el dispositivo</a></li>
-          <li><a href="#cuenta">Cuenta y respaldo privado</a></li>
-          <li><a href="#nunca-sincroniza">Lo que nunca se sincroniza</a></li>
+          <li><a href="#device">Data stored on your device</a></li>
+          <li><a href="#account">Account and private backup</a></li>
+          <li><a href="#never-synced">What never syncs</a></li>
           <li><a href="#screen-time">Screen Time</a></li>
-          <li><a href="#voz">Micrófono y voz local</a></li>
+          <li><a href="#voice">Microphone and on-device voice</a></li>
           <li><a href="#speak-ai">Speak with AI</a></li>
-          <li><a href="#compras">Compras</a></li>
-          <li><a href="#tracking">Tracking, publicidad y terceros</a></li>
-          <li><a href="#conservacion">Conservación y eliminación</a></li>
-          <li><a href="#contacto">Cambios y contacto</a></li>
+          <li><a href="#purchases">Purchases</a></li>
+          <li><a href="#tracking">Tracking, advertising and third parties</a></li>
+          <li><a href="#retention">Retention and deletion</a></li>
+          <li><a href="#contact">Changes and contact</a></li>
       </ul>
     </nav>
 
     <main>
-      <section id="dispositivo">
-        <h2>Datos guardados en el dispositivo</h2>
-        <p>El progreso, intentos, racha, pactos, perfil de aprendizaje y preferencias se almacenan primero mediante SwiftData, UserDefaults y el App Group necesario para widgets y extensiones. Los contadores privados de activación guardan únicamente cantidades y fechas; no incluyen edad declarada, apps seleccionadas ni respuestas.</p>
+      <section id="device">
+        <h2>Data stored on your device</h2>
+        <p>Progress, attempts, streak, pacts, learning profile and preferences are stored first through SwiftData, UserDefaults and the App Group that widgets and extensions need. Private activation counters record only counts and dates; they do not include your stated age, the apps you selected, or your answers.</p>
       </section>
 
-      <section id="cuenta">
-        <h2>Cuenta y respaldo privado</h2>
-        <p>Crear una cuenta es opcional. Si eliges Continuar con Apple, Lockquest guarda ese identificador sólo en el Keychain del dispositivo; no entra al respaldo. También conserva localmente una huella opaca de la cuenta iCloud que recibió el consentimiento: si la cuenta del sistema cambia, el respaldo se desconecta antes de leer o escribir la base privada nueva y debes volver a activarlo. Esa huella nunca entra al payload.</p>
-        <p>Lockquest sincroniza racha, resultados de intentos, dominio, repasos, Loqui, estrellas, preferencias y los nombres que escribas para rutas personalizadas con la base privada de la cuenta de iCloud activa. Las respuestas libres que escribes en ejercicios no se sincronizan. Esos datos se vinculan a tu iCloud únicamente para respaldo y continuidad; no se usan para publicidad, marketing ni tracking.</p>
-        <p>Sign in with Apple y la cuenta de iCloud pueden ser cuentas Apple distintas: para ver la misma copia en otro dispositivo necesitas usar la misma cuenta de iCloud y volver a Continuar con Apple.</p>
+      <section id="account">
+        <h2>Account and private backup</h2>
+        <p>Sign-in for private backup is optional. Lockquest keeps your Sign in with Apple identifier securely in the device Keychain; it never enters the backup. It also keeps, locally, an opaque fingerprint of the iCloud account that gave consent: if the system account changes, the backup disconnects before reading or writing the new private database and you have to turn it on again. That fingerprint never enters the backup or the account authorization service.</p>
+        <p>When sign-in uses the account authorization service, the app explains this before you continue with Apple. It sends your Apple identifier, identity token and one-use authorization code over HTTPS so the service can verify your sign-in and securely retain the authorization needed to revoke access when you delete your account. Apple credentials are encrypted at rest. Identity tokens can include an email or relay address previously shared with Apple sign-in; the service does not use that address for identification, contact, marketing or analytics. Your display name stays local. Accounts set up without this service that have never used it keep the manual revocation process. Losing a service credential does not change that history.</p>
+        <p>The authorization service does not receive your learning history, answers, selected apps, Screen Time data, voice, AI conversations or iCloud backup. It is separate from any social account data. Revoking an Apple authorization can affect other sign-in sessions that share the same Apple app authorization.</p>
+        <p>Lockquest syncs streak, attempt results, mastery, reviews, Loqui, stars, preferences and the names you write for custom paths with the private database of the active iCloud account. Free-text answers you write in exercises are not synced. That data is linked to your iCloud solely for backup and continuity; it is not used for advertising, marketing or tracking.</p>
+        <p>The authorization service uses a keyed fingerprint of the connection’s IP address to limit automated sign-in abuse. It does not store the raw address or derive your location. This fingerprint can be linked to the sign-in attempt and is cleared in maintenance after the five-minute challenge expires, even while a deletion remains pending. It is not used for analytics or tracking.</p>
+        <p>Sign in with Apple and your iCloud account can be different Apple accounts: to see the same copy on another device you need the same iCloud account and to sign in with Apple again.</p>
       </section>
 
-      <section id="nunca-sincroniza">
-        <h2>Lo que nunca se sincroniza</h2>
-        <p>Los pactos, horarios, tokens opacos de Family Controls, apps o categorías elegidas, permisos del sistema, sesiones de tiempo ganado y minutos disponibles permanecen locales. Los tokens de Screen Time son específicos del dispositivo y no se convierten en nombres de apps para el respaldo.</p>
+      <section id="never-synced">
+        <h2>What never syncs</h2>
+        <p>Pacts, schedules, opaque Family Controls tokens, the apps or categories you chose, system permissions, earned-time sessions and available minutes stay on the device. Screen Time tokens are device-specific and are never turned into app names for the backup.</p>
       </section>
 
       <section id="screen-time">
         <h2>Screen Time</h2>
-        <p>Family Controls entrega tokens opacos para las apps y categorías elegidas. Lockquest los usa sólo para aplicar shields y medir cuándo se alcanza el umbral de tiempo configurado. No recibe el contenido de otras apps ni un historial completo de navegación.</p>
+        <p>Family Controls hands over opaque tokens for the apps and categories you choose. Lockquest uses them only to apply shields and to measure when you reach the usage threshold you configured. It does not receive the contents of other apps or a full browsing history.</p>
       </section>
 
-      <section id="voz">
-        <h2>Micrófono y voz local</h2>
-        <p>La conversación guiada solicita micrófono y reconocimiento de voz. Cuando el dispositivo lo admite, la transcripción se exige on-device. El audio y la transcripción temporal no se conservan ni se envían a Lockquest.</p>
+      <section id="safari-shorts">
+        <h2>Safari Shorts filter</h2>
+        <p>The optional Safari extension reads and changes permitted YouTube pages to hide Shorts. It processes page links locally, without storing or sending browsing activity. It has no access to your Screen Time selections or learning profile. Safari controls its website permissions; you can deny access or disable it there.</p>
+      </section>
+
+      <section id="voice">
+        <h2>Microphone and on-device voice</h2>
+        <p>Guided conversation asks for the microphone and speech recognition. Where the device supports it, transcription is required to happen on-device. Audio and the temporary transcription are not kept and are never sent to Lockquest.</p>
       </section>
 
       <section id="speak-ai">
         <h2>Speak with AI</h2>
+        <p>On supported devices, Speak with AI uses Apple's Foundation Models to generate replies inside the device. The recognized transcription, the prompts and the replies live in an ephemeral session and are erased when you leave; Lockquest neither receives them nor uses them for tracking. If the local model is unavailable, the app offers the guided coach without AI.</p>
+      </section>
+
+      <section id="purchases">
+        <h2>Purchases</h2>
+        <p>Apple processes payments and provides signed transactions through StoreKit. Neither the account nor its backup ever grants Pro: Lockquest enables it only after the App Store verifies a current purchase. The restore button asks Apple for that verification, and Lockquest never receives card numbers.</p>
+      </section>
+
+      <section id="tracking">
+        <h2>Tracking, advertising and third parties</h2>
+        <p>The client embeds no advertising SDKs, no third-party analytics and no cross-app or cross-site tracking. The App Privacy inventory includes user identifiers and any email address inside retained Apple credentials for optional account authorization, plus other data types used for its anti-abuse checks. Gameplay content, product interaction and other user content — the free-text path names — are declared for the optional private iCloud backup. These data are linked to the user, used only for app functionality, and never for tracking.</p>
+      </section>
+
+      <section id="retention">
+        <h2>Retention and deletion</h2>
+        <p>Delete account in Profile removes the current learning history on this device, including learning from before sign-in, Loqui, earned stars and related reminders, and deletes the private iCloud backup. Blocking rules, appearance and accessibility settings, purchases and Pro access remain. The request pauses learning and cannot be canceled once it starts. Follow the steps shown to remove Lockquest’s Sign in with Apple access; learning can continue locally after the required account, backup and Apple checks are complete and you choose to continue. This does not cancel an Apple subscription. Deleting only the backup preserves local learning and does not revoke Sign in with Apple. Disconnecting alone preserves the cloud backup.</p>
+        <p>Local deletion journals and receipts retain technical request and reference IDs, an identity hash and an opaque iCloud account fingerprint to resume interrupted steps and prevent deleted data from being restored by an older session. Completed receipts remain on this device, including when a later deletion starts. The original Apple sign-in identifier is kept securely while needed to verify revocation, then removed after revocation is confirmed. A minimal deletion marker remains in the private iCloud database to help prevent compatible older backup sessions from uploading deleted learning again. Deletion does not mean that every technical identifier is erased.</p>
+        <p>When the authorization service accepts a deletion request, it prevents further access through that authorization. The service then requests revocation from Apple and removes the retained credentials after confirmed revocation. If Apple cannot be reached or the result is uncertain, the returned identity token, access token and refresh token for each pending revocation remain encrypted and the pending request is retained so revocation can be retried; an expired session does not cancel that work. An explicit server result can direct the account to manual revocation. Missing credentials or a missing receipt are not that result. Local and iCloud deletion can advance independently, but completing a service-backed deletion requires its terminal receipt and the native Apple confirmation for the original identity. A server receipt does not prove that the separate iCloud backup has been deleted.</p>
+        <p>Service sessions last up to 30 days. Server deletion receipts and metadata for erased credentials are retained for 30 days; temporary identity barriers last 15 minutes after deletion finishes and keyed fingerprints used to prevent reuse of an authorization code last 24 hours. These fingerprints do not contain the original code. Physical cleanup occurs during the next maintenance pass that can process the record. Pending revocation has no automatic expiry. A missing or expired receipt is not treated as proof of deletion.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Changes and contact</h2>
+        <p>Material changes will appear here and inside the app before they take effect. For privacy questions write to <a href="mailto:lockquest.app@gmail.com">lockquest.app@gmail.com</a>.</p>
+      </section>
+
+      <section id="es" lang="es-MX">
+        <h2>Política de privacidad (español)</h2>
+        <p class="lead">Lockquest es local-first: el núcleo no requiere cuenta, no incluye publicidad, no rastrea y no vende datos personales.</p>
+      </section>
+      <section lang="es-MX" id="es-dispositivo">
+        <h2>Datos guardados en el dispositivo</h2>
+        <p>El progreso, intentos, racha, pactos, perfil de aprendizaje y preferencias se almacenan primero mediante SwiftData, UserDefaults y el App Group necesario para widgets y extensiones. Los contadores privados de activación guardan únicamente cantidades y fechas; no incluyen edad declarada, apps seleccionadas ni respuestas.</p>
+      </section>
+
+      <section lang="es-MX" id="es-cuenta">
+        <h2>Cuenta y respaldo privado</h2>
+        <p>Iniciar sesión para el respaldo privado es opcional. Lockquest guarda tu identificador de Continuar con Apple de forma segura en el Keychain del dispositivo; no entra al respaldo. También conserva localmente una huella opaca de la cuenta iCloud que recibió el consentimiento: si la cuenta del sistema cambia, el respaldo se desconecta antes de leer o escribir la base privada nueva y debes volver a activarlo. Esa huella nunca entra al respaldo ni al servicio de autorización de cuenta.</p>
+        <p>Cuando el inicio de sesión usa el servicio de autorización de cuenta, la app lo explica antes de continuar con Apple. Envía tu identificador Apple, token de identidad y código de autorización de un solo uso mediante HTTPS para verificar el acceso y guardar de forma segura la autorización necesaria para revocarlo al eliminar tu cuenta. Las credenciales Apple se conservan cifradas. Los tokens de identidad pueden contener un correo o dirección de retransmisión que hayas compartido antes mediante Apple; el servicio no usa esa dirección para identificarte, contactarte, marketing ni analítica. Tu nombre visible permanece local. Las cuentas creadas sin este servicio que nunca lo usaron conservan la revocación manual. Perder una credencial del servicio no cambia ese historial.</p>
+        <p>El servicio de autorización no recibe tu historial de aprendizaje, respuestas, apps elegidas, datos de Screen Time, voz, conversaciones con IA ni respaldo de iCloud. Está separado de los datos de cuentas sociales. Revocar una autorización Apple puede afectar otras sesiones que compartan la misma autorización de Apple para la app.</p>
+        <p>Lockquest sincroniza racha, resultados de intentos, dominio, repasos, Loqui, estrellas, preferencias y los nombres que escribas para rutas personalizadas con la base privada de la cuenta de iCloud activa. Las respuestas libres que escribes en ejercicios no se sincronizan. Esos datos se vinculan a tu iCloud únicamente para respaldo y continuidad; no se usan para publicidad, marketing ni tracking.</p>
+        <p>El servicio de autorización usa una huella con clave de la dirección IP de la conexión para limitar abusos automatizados del inicio de sesión. No guarda la dirección en claro ni deriva tu ubicación. La huella puede vincularse al intento de acceso y se retira en mantenimiento tras vencer el desafío de cinco minutos, incluso si una baja sigue pendiente. No se usa para analítica ni tracking.</p>
+        <p>Sign in with Apple y la cuenta de iCloud pueden ser cuentas Apple distintas: para ver la misma copia en otro dispositivo necesitas usar la misma cuenta de iCloud y volver a Continuar con Apple.</p>
+      </section>
+
+      <section lang="es-MX" id="es-nunca-sincroniza">
+        <h2>Lo que nunca se sincroniza</h2>
+        <p>Los pactos, horarios, tokens opacos de Family Controls, apps o categorías elegidas, permisos del sistema, sesiones de tiempo ganado y minutos disponibles permanecen locales. Los tokens de Screen Time son específicos del dispositivo y no se convierten en nombres de apps para el respaldo.</p>
+      </section>
+
+      <section lang="es-MX" id="es-screen-time">
+        <h2>Screen Time</h2>
+        <p>Family Controls entrega tokens opacos para las apps y categorías elegidas. Lockquest los usa sólo para aplicar shields y medir cuándo se alcanza el umbral de tiempo configurado. No recibe el contenido de otras apps ni un historial completo de navegación.</p>
+      </section>
+
+      <section lang="es-MX" id="es-safari-shorts">
+        <h2>Filtro de Shorts en Safari</h2>
+        <p>La extensión opcional de Safari lee y modifica las páginas autorizadas de YouTube para ocultar Shorts. Procesa los enlaces localmente sin guardar ni enviar la actividad de navegación. No accede a tus selecciones de Screen Time ni a tu perfil de aprendizaje. Safari controla sus permisos por sitio; puedes denegar el acceso o desactivarla allí.</p>
+      </section>
+
+      <section lang="es-MX" id="es-voz">
+        <h2>Micrófono y voz local</h2>
+        <p>La conversación guiada solicita micrófono y reconocimiento de voz. Cuando el dispositivo lo admite, la transcripción se exige on-device. El audio y la transcripción temporal no se conservan ni se envían a Lockquest.</p>
+      </section>
+
+      <section lang="es-MX" id="es-speak-ai">
+        <h2>Speak with AI</h2>
         <p>En dispositivos compatibles, Speak with AI usa Foundation Models de Apple para generar respuestas dentro del dispositivo. La transcripción reconocida, los prompts y las respuestas permanecen en una sesión efímera y se borran al salir; Lockquest no los recibe ni los usa para tracking. Si el modelo local no está disponible, la app ofrece el coach guiado sin IA.</p>
       </section>
 
-      <section id="compras">
+      <section lang="es-MX" id="es-compras">
         <h2>Compras</h2>
         <p>Apple procesa pagos y proporciona transacciones firmadas mediante StoreKit. La cuenta y su copia nunca conceden Pro: Lockquest lo habilita sólo después de que App Store verifica una compra vigente. El botón de restauración solicita esa verificación a Apple y Lockquest no recibe números de tarjeta.</p>
       </section>
 
-      <section id="tracking">
+      <section lang="es-MX" id="es-tracking">
         <h2>Tracking, publicidad y terceros</h2>
-        <p>El cliente no incorpora SDKs de publicidad, analytics de terceros ni tracking entre apps o sitios. La etiqueta App Privacy declara contenido de juego, interacción con el producto y otro contenido de usuario —los nombres libres de rutas— únicamente para el respaldo opcional; están vinculados a la base privada de iCloud, se usan para funcionalidad de la app y nunca para tracking. El identificador de Continuar con Apple no sale del dispositivo.</p>
+        <p>El cliente no incorpora SDKs de publicidad, analytics de terceros ni tracking entre apps o sitios. El inventario App Privacy incluye identificadores de usuario y cualquier correo incluido en las credenciales Apple conservadas para la autorización opcional de cuenta, además de otros datos destinados a sus controles antiabuso. El contenido de juego, interacción con el producto y otro contenido de usuario —los nombres libres de rutas— corresponden al respaldo privado opcional de iCloud. Estos datos están vinculados al usuario, se usan únicamente para funcionalidad de la app y nunca para tracking.</p>
       </section>
 
-      <section id="conservacion">
+      <section lang="es-MX" id="es-conservacion">
         <h2>Conservación y eliminación</h2>
-        <p>Los datos locales permanecen hasta que los borras o eliminas la app y sus datos. Puedes borrar la copia privada de iCloud desde Perfil; desconectar Continuar con Apple detiene futuros respaldos pero no destruye la copia sin una confirmación separada. Apple administra el historial de compras para restauraciones.</p>
+        <p>Eliminar cuenta, en Perfil, borra el historial de aprendizaje actual de este dispositivo, incluido el aprendizaje anterior al inicio de sesión, Loqui, las estrellas ganadas y los recordatorios relacionados, y elimina el respaldo privado de iCloud. Conserva las reglas de bloqueo, los ajustes de apariencia y accesibilidad, las compras y el acceso Pro. La solicitud pausa el aprendizaje y no se puede cancelar una vez iniciada. Sigue los pasos indicados para retirar el acceso de Lockquest a Continuar con Apple; podrás continuar localmente cuando se completen las comprobaciones necesarias de cuenta, respaldo y Apple, y tú elijas continuar. Esto no cancela una suscripción de Apple. Borrar sólo el respaldo conserva el aprendizaje local y no revoca Continuar con Apple. Desconectarse por sí solo conserva el respaldo en la nube.</p>
+        <p>Los registros y recibos locales de eliminación conservan identificadores técnicos de solicitud y referencia, un hash de identidad y una huella opaca de la cuenta de iCloud para reanudar pasos interrumpidos y evitar que una sesión anterior restaure datos eliminados. Los recibos completados permanecen en este dispositivo, incluso al iniciar otra eliminación. El identificador original de Continuar con Apple se conserva de forma segura mientras sea necesario para verificar la revocación y se retira cuando ésta se confirma. Un marcador mínimo de eliminación permanece en la base privada de iCloud para ayudar a impedir que sesiones de respaldo anteriores compatibles vuelvan a subir aprendizaje eliminado. Eliminar la cuenta no significa borrar todos los identificadores técnicos.</p>
+        <p>Cuando el servicio de autorización acepta una solicitud de baja, impide nuevos accesos mediante esa autorización. Después, el servicio solicita la revocación a Apple y retira las credenciales cuando se confirma. Si Apple no responde o el resultado es incierto, conserva cifrados el token de identidad devuelto, el token de acceso y el token de renovación de cada revocación pendiente, y mantiene la solicitud pendiente para reintentar; el vencimiento de una sesión no cancela ese trabajo. Un resultado explícito del servidor puede indicar la vía manual. La falta de credenciales o de un recibo no equivale a ese resultado. La eliminación local y de iCloud puede avanzar por separado, pero cerrar una baja con servicio requiere su recibo terminal y la confirmación nativa de Apple para la identidad original. Un recibo del servidor no demuestra que el respaldo separado de iCloud se haya eliminado.</p>
+        <p>Las sesiones del servicio duran hasta 30 días. Los recibos del servidor y los metadatos de credenciales borradas se conservan 30 días; las barreras temporales de identidad duran 15 minutos desde el fin de la baja y las huellas con clave que impiden reutilizar un código de autorización duran 24 horas. Estas huellas no contienen el código original. La limpieza física ocurre en la siguiente pasada de mantenimiento que pueda procesar el registro. La revocación pendiente no vence automáticamente. La ausencia o el vencimiento de un recibo no se interpreta como prueba de eliminación.</p>
       </section>
 
-      <section id="contacto">
+      <section lang="es-MX" id="es-contacto">
         <h2>Cambios y contacto</h2>
         <p>Las modificaciones materiales se reflejarán aquí y dentro de la app antes de entrar en vigor. Para preguntas de privacidad escribe a <a href="mailto:lockquest.app@gmail.com">lockquest.app@gmail.com</a>.</p>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Lockquest · aprendizaje y bienestar digital local-first · <a href="../support/">Soporte</a></p>
+      <p>Lockquest · local-first learning and digital wellbeing · <a href="../support/">Support</a></p>
     </footer>
   </div>
 </body>
